@@ -1,0 +1,28 @@
+{
+	"name": "leaflet.marker-motion",
+	"version": "0.0.1",
+	"private": false,
+	"description": "",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion.git"
+	},
+	"keywords": ["Leaflet"],
+	"author": "Alejandro Ramírez Muñoz",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/issues"
+	},
+	"homepage": "https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion#readme",
+	"peerDependencies": {
+		"leaflet": "^1.0.0"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.8.3"
+	}
+}
