@@ -43,37 +43,50 @@ class MarkerMotion extends L.Marker {
 		this._startTime = null;
 		this._segmentStartTime = null;
 		this._rafId = null;
+		this._lastPosition = null;
+        this._segmentProgress = 0;
 		this._animate = this._animate.bind(this);
 	}
 
 	/**
 	 * Starts or resumes the motion of the marker along the path.
+	 * If the marker is in READY state, it starts from the beginning.
+	 * If the marker is PAUSED, it resumes from the current position.
 	 */
 	start() {
-		if (
-			this._state === MarkerMotionState.READY ||
-			this._state === MarkerMotionState.PAUSED
-		) {
-			this._startTime = performance.now();
-			this._segmentStartTime = this._startTime;
-			this._state = MarkerMotionState.MOVING;
-			this._rafId = L.Util.requestAnimFrame(this._animate);
-		}
-	}
+        if (this._state === MarkerMotionState.READY || this._state === MarkerMotionState.PAUSED) {
+            const now = performance.now();
+            if (this._state === MarkerMotionState.PAUSED) {
+                const pauseDuration = now - this._pauseTime;
+                this._startTime += pauseDuration;
+                this._segmentStartTime += pauseDuration;
+            } else {
+                this._startTime = now;
+                this._segmentStartTime = now;
+                this._lastPosition = this._path[0];
+                this._segmentProgress = 0;
+            }
+            this._state = MarkerMotionState.MOVING;
+            this._rafId = L.Util.requestAnimFrame(this._animate);
+        }
+    }
 
 	/**
-	 * Pauses the motion of the marker at the beginning of the current segment.
+	 * Pauses the motion of the marker.
+	 * If the marker is already paused or not moving, this method has no effect.
 	 */
 	pause() {
 		if (this._state !== MarkerMotionState.MOVING) return;
 		cancelAnimationFrame(this._rafId);
 		this._rafId = null;
-		this.setLatLng(this._path[this._currentIndex]);
 		this._state = MarkerMotionState.PAUSED;
+		this._pauseTime = performance.now();
+        this._lastPosition = this.getLatLng();
 	}
 
 	/**
 	 * Stops the motion of the marker and resets it to the starting position.
+	 * This method can be called regardless of the current state of the marker.
 	 */
 	reset() {
 		this._state = MarkerMotionState.READY;
@@ -85,37 +98,43 @@ class MarkerMotion extends L.Marker {
 
 	/**
 	 * Animates the marker along the path.
-	 * @param {number} timestamp - Current time in milliseconds.
+	 * This method calculates the current position of the marker based on elapsed time and speed,
+	 * updates the marker's position, and schedules the next animation frame if necessary.
+	 * @param {number} timestamp - Current time in milliseconds, provided by requestAnimationFrame.
 	 * @private
 	 */
 	_animate(timestamp) {
-		if (this._state !== MarkerMotionState.MOVING) return;
+        if (this._state !== MarkerMotionState.MOVING) return;
 
-		const elapsedTime = (timestamp - this._segmentStartTime) / 1000;
-		const currentSegment = this._path[this._currentIndex];
-		const nextSegment = this._path[this._currentIndex + 1];
+        const elapsedTime = (timestamp - this._segmentStartTime) / 1000;
+        const currentSegment = this._path[this._currentIndex];
+        const nextSegment = this._path[this._currentIndex + 1];
 
-		const segmentDistance = currentSegment.distanceTo(nextSegment);
-		const segmentDuration = segmentDistance / this._speed;
+        const segmentDistance = currentSegment.distanceTo(nextSegment);
+        const segmentDuration = segmentDistance / this._speed;
 
-		if (elapsedTime >= segmentDuration) {
-			this._currentIndex++;
-			if (this._currentIndex >= this._path.length - 1) {
-				this.setLatLng(this._path[this._path.length - 1]);
-				this._state = MarkerMotionState.ENDED;
-				return;
-			}
-			this._segmentStartTime = timestamp;
-			this._rafId = L.Util.requestAnimFrame(this._animate);
-			return;
-		}
+        const totalProgress = this._segmentProgress + elapsedTime / segmentDuration;
 
-		const factor = elapsedTime / segmentDuration;
-		const position = this._interpolate(currentSegment, nextSegment, factor);
+        if (totalProgress >= 1) {
+            this._currentIndex++;
+            if (this._currentIndex >= this._path.length - 1) {
+                this.setLatLng(this._path[this._path.length - 1]);
+                this._state = MarkerMotionState.ENDED;
+                return;
+            }
+            this._segmentStartTime = timestamp;
+            this._segmentProgress = totalProgress - 1;
+            this._lastPosition = nextSegment;
+            this._rafId = L.Util.requestAnimFrame(this._animate);
+            return;
+        }
 
-		this.setLatLng(position);
-		this._rafId = L.Util.requestAnimFrame(this._animate);
-	}
+        const position = this._interpolate(currentSegment, nextSegment, totalProgress);
+
+        this.setLatLng(position);
+        this._lastPosition = position;
+        this._rafId = L.Util.requestAnimFrame(this._animate);
+    }
 
 	/**
 	 * Interpolates the position between two points based on the factor t.
