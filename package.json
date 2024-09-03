@@ -12,7 +12,9 @@
 		"type": "git",
 		"url": "git+https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion.git"
 	},
-	"keywords": ["Leaflet"],
+	"keywords": [
+		"Leaflet"
+	],
 	"author": "Alejandro Ramírez Muñoz",
 	"license": "MIT",
 	"bugs": {
@@ -24,5 +26,8 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.8.3"
+	},
+	"dependencies": {
+		"d3-timer": "^3.0.1"
 	}
 }
