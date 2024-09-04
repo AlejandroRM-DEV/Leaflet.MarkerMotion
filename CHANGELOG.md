@@ -1,5 +1,12 @@
 
 
+## [0.2.1](https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/compare/0.2.0...0.2.1) (2024-09-04)
+
+
+### Documentation
+
+* :memo: Updates readme ([bc94d16](https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/commit/bc94d16a04caaae680918bc44fda09679dc4d7c3))
+
 ## 0.2.0 (2024-09-04)
 
 
