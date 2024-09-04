@@ -1,8 +1,8 @@
 # Leaflet.MarkerMotion
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
-
 Leaflet.MarkerMotion is an open-source plugin for Leaflet that enables smooth marker animation along a predefined path. This plugin is perfect for visualizing routes, tracking objects in real-time, or creating engaging map-based animations.
+
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 
 ## Features
 
@@ -10,6 +10,10 @@ Leaflet.MarkerMotion is an open-source plugin for Leaflet that enables smooth ma
 - Configurable animation speed
 - Play, pause, and reset functionality
 - Easy integration with existing Leaflet projects
+
+## Demo
+
+<https://leaflet-marker-motion.vercel.app>
 
 ## Installation
 
@@ -44,6 +48,14 @@ const kmh = 1000;
 const markerMotion = L.markerMotion(points, kmh).addTo(map);
 markerMotion.start();
 ```
+
+## Roadmap
+
+- Rotate the marker in the direction of the next point
+- Ability to accelerate or decelerate
+- Listen to events such as start, pause, end, etc.
+- Automatic playback
+- Loop
 
 ## API Reference
 
