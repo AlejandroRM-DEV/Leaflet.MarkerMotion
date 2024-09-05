@@ -1,5 +1,7 @@
 
 
+## [0.3.4](https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/compare/0.3.3...0.3.4) (2024-09-05)
+
 ## [0.3.3](https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/compare/0.3.2...0.3.3) (2024-09-05)
 
 
