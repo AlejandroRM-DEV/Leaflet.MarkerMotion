@@ -58,7 +58,6 @@ markerMotion.start();
 
 ## Roadmap
 
-- Rotate the marker in the direction of the next point
 - Ability to accelerate or decelerate
 - Listen to events such as start, pause, end, etc.
 - Automatic playback

@@ -1,68 +1,68 @@
 {
-    "$schema": "https://unpkg.com/release-it/schema/release-it.json",
-    "git": {
-      "commitMessage": "chore: release v${version} [skip ci]",
-      "requireCleanWorkingDir": false
-    },
-    "github": {
-      "release": true,
-      "tokenRef": "REPO_TOKEN"
-    },
-    "npm": {
-      "publish": true
-    },
-    "plugins": {
-      "@release-it/conventional-changelog": {
-        "infile": "CHANGELOG.md",
-        "preset": {
-          "name": "conventionalcommits",
-          "types": [
-            {
-              "type": "feat",
-              "section": "Features"
-            },
-            {
-              "type": "fix",
-              "section": "Bug Fixes"
-            },
-            {
-              "type": "chore",
-              "section": "Miscellaneous Chores"
-            },
-            {
-              "type": "docs",
-              "section": "Documentation"
-            },
-            {
-              "type": "style",
-              "section": "Styles"
-            },
-            {
-              "type": "refactor",
-              "section": "Code Refactoring"
-            },
-            {
-              "type": "perf",
-              "section": "Performance Improvements"
-            },
-            {
-              "type": "test",
-              "section": "Tests"
-            },
-            {
-              "type": "build",
-              "section": "Build System"
-            },
-            {
-              "type": "ci",
-              "section": "Continuous Integration"
-            },
-            {
-              "type": "revert",
-              "section": "Reverts"
-            }
-          ]
-        }
+  "$schema": "https://unpkg.com/release-it/schema/release-it.json",
+  "git": {
+    "commitMessage": "chore: release v${version} [skip ci]",
+    "requireCleanWorkingDir": false
+  },
+  "github": {
+    "release": true,
+    "tokenRef": "REPO_TOKEN"
+  },
+  "npm": {
+    "publish": true
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "infile": "CHANGELOG.md",
+      "preset": {
+        "name": "conventionalcommits",
+        "types": [
+          {
+            "type": "feat",
+            "section": "Features"
+          },
+          {
+            "type": "fix",
+            "section": "Bug Fixes"
+          },
+          {
+            "type": "chore",
+            "section": "Miscellaneous Chores"
+          },
+          {
+            "type": "docs",
+            "section": "Documentation"
+          },
+          {
+            "type": "style",
+            "section": "Styles"
+          },
+          {
+            "type": "refactor",
+            "section": "Code Refactoring"
+          },
+          {
+            "type": "perf",
+            "section": "Performance Improvements"
+          },
+          {
+            "type": "test",
+            "section": "Tests"
+          },
+          {
+            "type": "build",
+            "section": "Build System"
+          },
+          {
+            "type": "ci",
+            "section": "Continuous Integration"
+          },
+          {
+            "type": "revert",
+            "section": "Reverts"
+          }
+        ]
       }
     }
   }
+}

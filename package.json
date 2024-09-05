@@ -1,38 +1,39 @@
 {
-	"name": "leaflet.marker-motion",
-	"version": "0.2.3",
-	"private": false,
-	"description": "",
-	"main": "index.js",
-	"type": "module",
-	"scripts": {
-		"release": "release-it"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion.git"
-	},
-	"keywords": [
-		"Leaflet"
-	],
-	"author": "Alejandro Ramírez Muñoz",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/issues"
-	},
-	"homepage": "https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion#readme",
-	"peerDependencies": {
-		"leaflet": "^1.0.0"
-	},
-	"devDependencies": {
-		"@biomejs/biome": "1.8.3",
-		"@commitlint/cli": "^19.4.0",
-		"@commitlint/config-conventional": "^19.2.2",
-		"@release-it/conventional-changelog": "^8.0.1",
-		"release-it": "^17.6.0"
-	},
-	"publishConfig": {
-		"access": "public",
-		"registry": "https://registry.npmjs.org/"
-	}
+  "name": "leaflet.marker-motion",
+  "version": "0.2.3",
+  "private": false,
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "release": "release-it"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion.git"
+  },
+  "keywords": ["Leaflet"],
+  "author": "Alejandro Ramírez Muñoz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/issues"
+  },
+  "homepage": "https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion#readme",
+  "peerDependencies": {
+    "leaflet": "^1.0.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.8.3",
+    "@commitlint/cli": "^19.4.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@release-it/conventional-changelog": "^8.0.1",
+    "release-it": "^17.6.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "@turf/turf": "^7.1.0"
+  }
 }
