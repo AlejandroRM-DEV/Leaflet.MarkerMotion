@@ -1,5 +1,12 @@
 
 
+## [0.3.0](https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/compare/0.2.3...0.3.0) (2024-09-05)
+
+
+### Features
+
+* :sparkles: Rotate the marker in the direction of the next point ([75e1576](https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/commit/75e1576cecf75538329d6af5728f3f300d14fa83))
+
 ## [0.2.3](https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/compare/0.2.2...0.2.3) (2024-09-05)
 
 ## [0.2.2](https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/compare/0.2.1...0.2.2) (2024-09-05)
