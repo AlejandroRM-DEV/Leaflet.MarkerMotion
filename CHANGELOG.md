@@ -1,5 +1,12 @@
 
 
+## [0.3.2](https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/compare/0.3.1...0.3.2) (2024-09-05)
+
+
+### Bug Fixes
+
+* :bug: Fix demo ([2dd74f3](https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/commit/2dd74f3ed57d4225e9a7cf89e73fcb31f73e09a3))
+
 ## [0.3.1](https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/compare/0.3.0...0.3.1) (2024-09-05)
 
 
