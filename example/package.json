@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "leaflet": "^1.9.4",
-    "leaflet.marker-motion": "latest",
+    "leaflet.marker-motion": "^0.3.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
