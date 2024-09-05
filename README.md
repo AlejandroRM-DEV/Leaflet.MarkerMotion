@@ -2,6 +2,13 @@
 
 Leaflet.MarkerMotion is an open-source plugin for Leaflet that enables smooth marker animation along a predefined path. This plugin is perfect for visualizing routes, tracking objects in real-time, or creating engaging map-based animations.
 
+![Build Status](https://img.shields.io/github/actions/workflow/status/AlejandroRM-DEV/Leaflet.MarkerMotion/release.yml?branch=main)
+![npm version](https://img.shields.io/npm/v/@alejandrorm-dev/leaflet.marker-motion)
+![npm](https://img.shields.io/npm/dw/@alejandrorm-dev/leaflet.marker-motion)
+![License](https://img.shields.io/badge/license-MIT-blue)
+![GitHub issues](https://img.shields.io/github/issues/AlejandroRM-DEV/Leaflet.MarkerMotion)
+![GitHub forks](https://img.shields.io/github/forks/AlejandroRM-DEV/Leaflet.MarkerMotion)
+![GitHub stars](https://img.shields.io/github/stars/AlejandroRM-DEV/Leaflet.MarkerMotion)
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
 
 ## Features
