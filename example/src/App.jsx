@@ -1,7 +1,7 @@
 import L from "leaflet";
 import { useEffect } from "react";
 import "leaflet/dist/leaflet.css";
-import "../../src/MarkerMotion";
+import "leaflet.marker-motion";
 
 function App() {
   useEffect(() => {

@@ -35,25 +35,44 @@ npm install leaflet.marker-motion
 Here's a basic example of how to use Leaflet.MarkerMotion:
 
 ```javascript
-const map = L.map("map").setView([22.645606, -102.980931], 15);
+const map = L.map("map").setView([22.634087, -102.983227], 14);
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 19,
-    attribution:
+  maxZoom: 19,
+  attribution:
     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 }).addTo(map);
 
 const points = [
-    [22.652615, -102.995279],
-    [22.648595, -102.987329],
-    [22.646586, -102.97997],
-    [22.646501, -102.967981],
+  [22.614407, -103.009848],
+  [22.622247, -103.006986],
+  [22.640489, -102.996611],
+  [22.641672, -102.995121],
+  [22.644173, -102.993314],
+  [22.646203, -102.996537],
+  [22.652985, -102.995663],
+  [22.648454, -102.987019],
+  [22.646342, -102.978193],
+  [22.646175, -102.968946],
+  [22.651401, -102.961356],
+  [22.651874, -102.958555],
+  [22.639483, -102.959202],
+  [22.618056, -102.981606],
+  [22.618216, -102.992432],
+  [22.616452, -102.997295],
 ];
 
 L.polyline(points).addTo(map);
 
-const kmh = 1000;
-const markerMotion = L.markerMotion(points, kmh).addTo(map);
-markerMotion.start();
+const icon = L.icon({
+  iconUrl: "./car.png",
+  iconSize: [38, 38],
+  iconAnchor: [19, 19],
+});
+const kmh = 4000;
+const markerMotion = L.markerMotion(points, kmh, {
+  icon,
+  rotation: true,
+}).addTo(map);
 ```
 
 ## Roadmap

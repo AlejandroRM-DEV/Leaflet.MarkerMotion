@@ -1,1 +1,1 @@
-export * from ".src/MarkerMotion";
+export * from "./src/MarkerMotion";
