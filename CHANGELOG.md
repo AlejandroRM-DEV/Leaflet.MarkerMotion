@@ -1,5 +1,17 @@
 
 
+## [0.6.0](https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/compare/0.5.0...0.6.0) (2024-09-06)
+
+
+### Features
+
+* :sparkles: Adds autoplay functionality ([e3c0752](https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/commit/e3c07527c269055ebbaf92405c295be13fcac1cc))
+
+
+### Tests
+
+* :white_check_mark: Update demo [skip ci] ([8d19832](https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/commit/8d19832c354df403d0161b1694e6e121eb2a2f76))
+
 ## [0.5.0](https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/compare/0.4.0...0.5.0) (2024-09-06)
 
 
