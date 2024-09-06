@@ -44,6 +44,7 @@ function App() {
       icon,
       rotation: true,
       autoplay: true,
+      loop: true,
     }).addTo(map);
 
     markerMotion.on('motion.start', () => {

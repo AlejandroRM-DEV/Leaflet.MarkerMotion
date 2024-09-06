@@ -79,10 +79,6 @@ markerMotion.on('motion.start', () => {
 });
 ```
 
-## Roadmap
-
-- Loop
-
 ## API Reference
 
 ### L.markerMotion(path, speedInKmH, options)
@@ -97,6 +93,7 @@ Creates a new MarkerMotion instance.
 
 - `rotation`: Updates the rotation angle of the marker based on its current position in the path and next point.
 - `autoplay`: Starts animation when its added.
+- `loop`
 - `...rest`: Marker options check official documentation.
 
 ### Methods

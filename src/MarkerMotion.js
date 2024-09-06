@@ -38,7 +38,7 @@ class MarkerMotion extends L.Marker {
       throw new Error("Options must be an object");
     }
 
-    const { rotation, autoplay, ...markerOptions } = options;
+    const { rotation, autoplay, loop, ...markerOptions } = options;
     if (rotation) {
       markerOptions.rotationOrigin ??= "center center";
       markerOptions.rotationAngle ??= 0;
@@ -55,6 +55,7 @@ class MarkerMotion extends L.Marker {
     this._rafId = null;
     this._lastPosition = null;
     this._segmentProgress = 0;
+    this._loop = loop;
     this._animate = this._animate.bind(this);
 
     if (this._rotation) {
@@ -217,6 +218,10 @@ class MarkerMotion extends L.Marker {
         this.setLatLng(this._path[this._path.length - 1]);
         this._state = MarkerMotionState.ENDED;
         this.fire("motion.end");
+        if (this._loop) {
+          this.reset();
+          this.start();
+        }
         return;
       }
       this._segmentStartTime = timestamp;
