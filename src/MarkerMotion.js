@@ -38,7 +38,7 @@ class MarkerMotion extends L.Marker {
       throw new Error("Options must be an object");
     }
 
-    const { rotation, ...markerOptions } = options;
+    const { rotation, autoplay, ...markerOptions } = options;
     if (rotation) {
       markerOptions.rotationOrigin ??= "center center";
       markerOptions.rotationAngle ??= 0;
@@ -62,6 +62,11 @@ class MarkerMotion extends L.Marker {
       this.on("add", this._onAdd, this);
       this.on("move", this._applyRotation, this);
       this.on("drag", this._applyRotation, this);
+    }
+
+    if (autoplay) {
+      this._autoplay = true;
+      this.start();
     }
   }
 
@@ -164,6 +169,9 @@ class MarkerMotion extends L.Marker {
     if (this._rotation) {
       this._updateAngle();
     }
+    if (this._autoplay) {
+      this.start();
+    }
     this.fire("motion.reset");
   }
 
@@ -204,7 +212,7 @@ class MarkerMotion extends L.Marker {
       this._currentIndex++;
       this.fire("motion.segment", {
         index: this._currentIndex,
-      })
+      });
       if (this._currentIndex >= this._path.length - 1) {
         this.setLatLng(this._path[this._path.length - 1]);
         this._state = MarkerMotionState.ENDED;

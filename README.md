@@ -81,7 +81,6 @@ markerMotion.on('motion.start', () => {
 
 ## Roadmap
 
-- Automatic playback
 - Loop
 
 ## API Reference
@@ -93,6 +92,12 @@ Creates a new MarkerMotion instance.
 - `path`: Array of `L.LatLng` points defining the path.
 - `speedInKmH`: Speed of the marker in kilometers per hour.
 - `options`: Optional Leaflet marker options.
+
+#### options
+
+- `rotation`: Updates the rotation angle of the marker based on its current position in the path and next point.
+- `autoplay`: Starts animation when its added.
+- `...rest`: Marker options check official documentation.
 
 ### Methods
 

@@ -43,6 +43,7 @@ function App() {
     const markerMotion = L.markerMotion(points, kmh, {
       icon,
       rotation: true,
+      autoplay: true,
     }).addTo(map);
 
     markerMotion.on('motion.start', () => {
