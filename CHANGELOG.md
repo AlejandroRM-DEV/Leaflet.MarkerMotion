@@ -1,5 +1,12 @@
 
 
+## [0.7.0](https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/compare/0.6.0...0.7.0) (2024-09-06)
+
+
+### Features
+
+* :zap: Adds loop functionality ([e89e5bf](https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/commit/e89e5bfc5d5a16e64ca5cd6f65353d318099e074))
+
 ## [0.6.0](https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/compare/0.5.0...0.6.0) (2024-09-06)
 
 
