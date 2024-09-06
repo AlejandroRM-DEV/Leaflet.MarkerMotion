@@ -1,5 +1,12 @@
 
 
+## [0.4.0](https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/compare/0.3.4...0.4.0) (2024-09-06)
+
+
+### Features
+
+* :sparkles: Method for setting the speed ([e75896b](https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/commit/e75896b459496edebdc99382068f1013b8a2a2cc))
+
 ## [0.3.4](https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/compare/0.3.3...0.3.4) (2024-09-05)
 
 ## [0.3.3](https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/compare/0.3.2...0.3.3) (2024-09-05)

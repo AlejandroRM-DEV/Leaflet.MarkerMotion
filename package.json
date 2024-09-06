@@ -1,6 +1,6 @@
 {
   "name": "leaflet.marker-motion",
-  "version": "0.3.4",
+  "version": "0.4.0",
   "private": false,
   "description": "",
   "main": "index.js",
@@ -12,7 +12,9 @@
     "type": "git",
     "url": "git+https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion.git"
   },
-  "keywords": ["Leaflet"],
+  "keywords": [
+    "Leaflet"
+  ],
   "author": "Alejandro Ramírez Muñoz",
   "license": "MIT",
   "bugs": {
