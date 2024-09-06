@@ -133,6 +133,7 @@ class MarkerMotion extends L.Marker {
       }
       this._state = MarkerMotionState.MOVING;
       this._rafId = L.Util.requestAnimFrame(this._animate);
+      this.fire("motion.start");
     }
   }
 
@@ -147,6 +148,7 @@ class MarkerMotion extends L.Marker {
     this._state = MarkerMotionState.PAUSED;
     this._pauseTime = performance.now();
     this._lastPosition = this.getLatLng();
+    this.fire("motion.pause");
   }
 
   /**
@@ -162,6 +164,7 @@ class MarkerMotion extends L.Marker {
     if (this._rotation) {
       this._updateAngle();
     }
+    this.fire("motion.reset");
   }
 
   /**
@@ -199,9 +202,13 @@ class MarkerMotion extends L.Marker {
 
     if (totalProgress >= 1) {
       this._currentIndex++;
+      this.fire("motion.segment", {
+        index: this._currentIndex,
+      })
       if (this._currentIndex >= this._path.length - 1) {
         this.setLatLng(this._path[this._path.length - 1]);
         this._state = MarkerMotionState.ENDED;
+        this.fire("motion.end");
         return;
       }
       this._segmentStartTime = timestamp;

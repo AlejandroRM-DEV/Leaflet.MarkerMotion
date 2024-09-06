@@ -45,6 +45,26 @@ function App() {
       rotation: true,
     }).addTo(map);
 
+    markerMotion.on('motion.start', () => {
+      console.log('Started');
+    });
+    
+    markerMotion.on('motion.pause', () => {
+      console.log('Paused');
+    });
+    
+    markerMotion.on('motion.reset', () => {
+      console.log('Reset');
+    });
+
+    markerMotion.on('motion.end', () => {
+      console.log('Ended');
+    });
+
+    markerMotion.on('motion.segment', (data) => {
+      console.log('Segment', data.index);
+    });
+
     L.Control.MarkerMotionControls = L.Control.extend({
       onAdd: function () {
         const container = L.DomUtil.create(
@@ -72,7 +92,7 @@ function App() {
         });
 
         this._createButton("Faster", container, () => {
-          kmh = Math.min(kmh + 1000, 10000); 
+          kmh = Math.min(kmh + 1000, 10000);
           markerMotion.setSpeed(kmh);
         });
 

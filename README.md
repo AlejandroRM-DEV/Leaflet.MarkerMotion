@@ -73,12 +73,14 @@ const markerMotion = L.markerMotion(points, kmh, {
   icon,
   rotation: true,
 }).addTo(map);
+
+markerMotion.on('motion.start', () => {
+  console.log('Started');
+});
 ```
 
 ## Roadmap
 
-- Ability to accelerate or decelerate
-- Listen to events such as start, pause, end, etc.
 - Automatic playback
 - Loop
 
@@ -97,10 +99,19 @@ Creates a new MarkerMotion instance.
 - `start()`: Starts or resumes the motion of the marker along the path.
 - `pause()`: Pauses the motion of the marker.
 - `reset()`: Stops the motion of the marker and resets it to the starting position.
+- `setSpeed()`: Sets the speed of the marker in kilometers per hour.
 - `isReady()`: Checks if the marker is in the READY state.
 - `isMoving()`: Checks if the marker is currently MOVING.
 - `isPaused()`: Checks if the marker motion is PAUSED.
 - `isEnded()`: Checks if the marker has ENDED its motion.
+
+### Events
+
+- `motion.start`
+- `motion.pause`
+- `motion.reset`
+- `motion.end`
+- `motion.segment`: Return current segment index
 
 ## Contributing
 
