@@ -38,7 +38,8 @@ function App() {
       iconSize: [38, 38],
       iconAnchor: [19, 19],
     });
-    const kmh = 4000;
+    let kmh = 4000;
+
     const markerMotion = L.markerMotion(points, kmh, {
       icon,
       rotation: true,
@@ -63,6 +64,16 @@ function App() {
 
         this._createButton("Reset", container, () => {
           markerMotion.reset();
+        });
+
+        this._createButton("Slower", container, () => {
+          kmh = Math.max(kmh - 500, 1000);
+          markerMotion.setSpeed(kmh);
+        });
+
+        this._createButton("Faster", container, () => {
+          kmh = Math.min(kmh + 1000, 10000); 
+          markerMotion.setSpeed(kmh);
         });
 
         return container;

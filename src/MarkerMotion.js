@@ -69,13 +69,12 @@ class MarkerMotion extends L.Marker {
    * Handles the 'add' event when the marker is added to the map.
    * Updates the marker's angle and applies the rotation.
    * @private
-   * @param {L.LeafletEvent} e - The Leaflet event object.
    */
-  _onAdd(e) {
+  _onAdd() {
     if (this._rotation) {
       this._updateAngle();
       this._applyRotation();
-      this._map.on('zoomend', this._applyRotation, this);
+      this._map.on("zoomend", this._applyRotation, this);
     }
   }
 
@@ -163,6 +162,20 @@ class MarkerMotion extends L.Marker {
     if (this._rotation) {
       this._updateAngle();
     }
+  }
+
+  /**
+   * Sets the speed of the marker in kilometers per hour.
+   * If you change the speed while moving, you might see the marker jumping around, but in the next segment everything's fine.
+   * @param {number} speedInKmH - Speed of the marker in kilometers per hour.
+   */
+  setSpeed(speedInKmH) {
+    if (speedInKmH <= 0) {
+      throw new Error("Speed must be greater than 0");
+    }
+    cancelAnimationFrame(this._rafId);
+    this._speed = (speedInKmH * 1000) / 3600;
+    this._rafId = L.Util.requestAnimFrame(this._animate);
   }
 
   /**

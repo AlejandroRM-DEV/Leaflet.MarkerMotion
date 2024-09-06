@@ -12,9 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion.git"
   },
-  "keywords": [
-    "Leaflet"
-  ],
+  "keywords": ["Leaflet"],
   "author": "Alejandro Ramírez Muñoz",
   "license": "MIT",
   "bugs": {
