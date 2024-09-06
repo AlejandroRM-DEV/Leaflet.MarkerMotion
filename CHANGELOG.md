@@ -1,5 +1,12 @@
 
 
+## [0.5.0](https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/compare/0.4.0...0.5.0) (2024-09-06)
+
+
+### Features
+
+* :sparkles: Fire events ([2860462](https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/commit/2860462fffaa1f42f570ee61079947968b93e88f))
+
 ## [0.4.0](https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/compare/0.3.4...0.4.0) (2024-09-06)
 
 
