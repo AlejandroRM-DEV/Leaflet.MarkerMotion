@@ -191,6 +191,29 @@ class MarkerMotion extends L.Marker {
   }
 
   /**
+   * Sets the progress of the marker along the path.
+   * @param {number} index - Index of the segment to set the progress to.
+   */
+  setProgress(index) {
+    if (index < 0 || index >= this._path.length) {
+      throw new Error("Invalid index");
+    }
+    cancelAnimationFrame(this._rafId);
+    this._state = MarkerMotionState.READY;
+    this._currentIndex = index;
+    this._startTime = null;
+    this._segmentStartTime = null;
+    this._segmentProgress = 0;
+    this.setLatLng(this._path[index]);
+    if (this._rotation) {
+      this._updateAngle();
+    }
+    if (this._autoplay) {
+      this.start();
+    }
+  }
+
+  /**
    * Animates the marker along the path.
    * This method calculates the current position of the marker based on elapsed time and speed,
    * updates the marker's position, and schedules the next animation frame if necessary.

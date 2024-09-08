@@ -98,6 +98,11 @@ function App() {
           markerMotion.setSpeed(kmh);
         });
 
+        this._createButton("Random progress", container, () => {
+          const randomIndex = Math.floor(Math.random() * points.length);
+          markerMotion.setProgress(randomIndex);
+        });
+
         return container;
       },
 
