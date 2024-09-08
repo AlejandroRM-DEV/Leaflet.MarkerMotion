@@ -1,5 +1,17 @@
 
 
+## [0.8.0](https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/compare/0.7.0...0.8.0) (2024-09-08)
+
+
+### Features
+
+* :zap: Sets the progress of the marker along the path. ([4899b7c](https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/commit/4899b7c866751db858dc9adad4a75d4dd6193da9))
+
+
+### Tests
+
+* :white_check_mark: Update demo [skip ci] ([6dc870a](https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/commit/6dc870adc7939c1edee8fac15d4b616b3586e67e))
+
 ## [0.7.0](https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/compare/0.6.0...0.7.0) (2024-09-06)
 
 
