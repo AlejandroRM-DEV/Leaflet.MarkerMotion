@@ -1,6 +1,6 @@
 # Leaflet.MarkerMotion
 
-Leaflet.MarkerMotion is an open-source plugin for Leaflet that enables smooth marker animation along a predefined path. This plugin is perfect for visualizing routes, tracking objects in real-time, or creating engaging map-based animations.
+Leaflet.MarkerMotion is a powerful open-source plugin for Leaflet that enables smooth marker animation along predefined paths. Perfect for visualizing routes or creating engaging map-based animations.
 
 ![Build Status](https://img.shields.io/github/actions/workflow/status/AlejandroRM-DEV/Leaflet.MarkerMotion/release.yml?branch=main)
 ![npm version](https://img.shields.io/npm/v/leaflet.marker-motion)
@@ -13,18 +13,20 @@ Leaflet.MarkerMotion is an open-source plugin for Leaflet that enables smooth ma
 
 ## Features
 
-- Smooth marker animation along a path
+- Smooth marker animation along a predefined path
 - Configurable animation speed
 - Play, pause, and reset functionality
+- Marker rotation based on path direction
+- Autoplay and loop options
 - Easy integration with existing Leaflet projects
 
 ## Demo
 
-<https://leaflet-marker-motion.vercel.app>
+Check out our live demo: [https://leaflet-marker-motion.vercel.app](https://leaflet-marker-motion.vercel.app)
 
 ## Installation
 
-You can install Leaflet.MarkerMotion via npm:
+Install Leaflet.MarkerMotion via npm:
 
 ```bash
 npm install leaflet.marker-motion
@@ -35,49 +37,49 @@ npm install leaflet.marker-motion
 Here's a basic example of how to use Leaflet.MarkerMotion:
 
 ```javascript
+// Initialize the map
 const map = L.map("map").setView([22.634087, -102.983227], 14);
+
+// Add a tile layer
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
   maxZoom: 19,
-  attribution:
-    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 }).addTo(map);
 
+// Define the path
 const points = [
   [22.614407, -103.009848],
   [22.622247, -103.006986],
-  [22.640489, -102.996611],
-  [22.641672, -102.995121],
-  [22.644173, -102.993314],
-  [22.646203, -102.996537],
-  [22.652985, -102.995663],
-  [22.648454, -102.987019],
-  [22.646342, -102.978193],
-  [22.646175, -102.968946],
-  [22.651401, -102.961356],
-  [22.651874, -102.958555],
-  [22.639483, -102.959202],
-  [22.618056, -102.981606],
-  [22.618216, -102.992432],
+  // ... more points ...
   [22.616452, -102.997295],
 ];
 
+// Add the path as a polyline (optional)
 L.polyline(points).addTo(map);
 
+// Create a custom icon (optional)
 const icon = L.icon({
   iconUrl: "./car.png",
   iconSize: [38, 38],
   iconAnchor: [19, 19],
 });
-const kmh = 4000;
-const markerMotion = L.markerMotion(points, kmh, {
+
+// Create and add the MarkerMotion
+const speed = 40; // km/h
+const markerMotion = L.markerMotion(points, speed, {
   icon,
   rotation: true,
+  autoplay: true,
+  loop: true
 }).addTo(map);
 
+// Listen for events (optional)
 markerMotion.on('motion.start', () => {
-  console.log('Started');
+  console.log('Motion started');
 });
 ```
+
+For more detailed example, check the `example` folder in the project repository.
 
 ## API Reference
 
@@ -87,21 +89,23 @@ Creates a new MarkerMotion instance.
 
 - `path`: Array of `L.LatLng` points defining the path.
 - `speedInKmH`: Speed of the marker in kilometers per hour.
-- `options`: Optional Leaflet marker options.
+- `options`: Optional Leaflet marker options and MarkerMotion-specific options.
 
-#### options
+#### MarkerMotion-specific options
 
-- `rotation`: Updates the rotation angle of the marker based on its current position in the path and next point.
-- `autoplay`: Starts animation when its added.
-- `loop`
-- `...rest`: Marker options check official documentation.
+- `rotation` (boolean): Updates the rotation angle of the marker based on its current position and next point in the path.
+- `autoplay` (boolean): Starts animation automatically when added to the map.
+- `loop` (boolean): Restarts the animation from the beginning when it reaches the end of the path.
+
+All standard Leaflet marker options are also supported.
 
 ### Methods
 
 - `start()`: Starts or resumes the motion of the marker along the path.
 - `pause()`: Pauses the motion of the marker.
 - `reset()`: Stops the motion of the marker and resets it to the starting position.
-- `setSpeed()`: Sets the speed of the marker in kilometers per hour.
+- `setSpeed(speedInKmH)`: Sets the speed of the marker in kilometers per hour.
+- `setProgress(index)`: Sets the progress of the marker to a specific segment of the path.
 - `isReady()`: Checks if the marker is in the READY state.
 - `isMoving()`: Checks if the marker is currently MOVING.
 - `isPaused()`: Checks if the marker motion is PAUSED.
@@ -109,17 +113,24 @@ Creates a new MarkerMotion instance.
 
 ### Events
 
-- `motion.start`
-- `motion.pause`
-- `motion.reset`
-- `motion.end`
-- `motion.segment`: Return current segment index
+- `motion.start`: Fired when the motion starts or resumes.
+- `motion.pause`: Fired when the motion is paused.
+- `motion.reset`: Fired when the marker is reset to its starting position.
+- `motion.end`: Fired when the marker reaches the end of the path.
+- `motion.segment`: Fired when the marker enters a new segment of the path. Returns the current segment index.
 
 ## Contributing
 
-Contributions to Leaflet.MarkerMotion are welcome!
+Contributions to Leaflet.MarkerMotion are welcome! Here's how you can contribute:
 
-Please make sure to adhere to the existing coding style.
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/AmazingFeature`)
+3. Make your changes
+4. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+5. Push to the branch (`git push origin feature/AmazingFeature`)
+6. Open a Pull Request
+
+Please make sure to update tests as appropriate and adhere to the existing coding style.
 
 ## License
 
@@ -156,4 +167,4 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
 
-This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind are welcome!
