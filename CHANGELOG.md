@@ -1,5 +1,13 @@
 
 
+## [0.8.1](https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/compare/0.8.0...0.8.1) (2024-09-09)
+
+
+### Miscellaneous Chores
+
+* Update example [skip ci] ([0205e95](https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/commit/0205e95a8a545e0007cdb3368e979ff3bf493a8b))
+* Update README [skip ci] ([fb62e9a](https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/commit/fb62e9a8d18637b8598e2b93a541a7225602ece3))
+
 ## [0.8.0](https://github.com/AlejandroRM-DEV/Leaflet.MarkerMotion/compare/0.7.0...0.8.0) (2024-09-08)
 
 
