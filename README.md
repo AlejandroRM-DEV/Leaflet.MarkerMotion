@@ -4,7 +4,7 @@ Leaflet.MarkerMotion is a powerful open-source plugin for Leaflet that enables s
 
 ![Build Status](https://img.shields.io/github/actions/workflow/status/AlejandroRM-DEV/Leaflet.MarkerMotion/release.yml?branch=main)
 ![npm version](https://img.shields.io/npm/v/leaflet.marker-motion)
-![npm](https://img.shields.io/npm/dw/leaflet.marker-motion)
+![npm](https://img.shields.io/npm/dt/leaflet.marker-motion)
 ![License](https://img.shields.io/badge/license-MIT-blue)
 ![GitHub issues](https://img.shields.io/github/issues/AlejandroRM-DEV/Leaflet.MarkerMotion)
 ![GitHub forks](https://img.shields.io/github/forks/AlejandroRM-DEV/Leaflet.MarkerMotion)
